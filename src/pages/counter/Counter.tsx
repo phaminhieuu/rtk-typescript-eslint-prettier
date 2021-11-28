@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import {
   decrement,
   increment,
   incrementByAmount,
   incrementAsync,
   incrementIfOdd,
-  selectCount,
-} from './counterSlice';
+  selectCount
+} from '../../redux/slices/counterSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
@@ -56,10 +56,7 @@ export function Counter() {
         >
           Add Async
         </button>
-        <button
-          className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
-        >
+        <button className={styles.button} onClick={() => dispatch(incrementIfOdd(incrementValue))}>
           Add If Odd
         </button>
       </div>
